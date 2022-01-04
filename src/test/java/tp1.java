@@ -17,13 +17,14 @@ public class tp1 {
         WebElement barreRecherche = driver.findElement(By.id("twotabsearchtextbox"));
         barreRecherche.sendKeys("machine a raclette");
         barreRecherche.sendKeys(Keys.ENTER);
-       /* try {
+        try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }*/
+        }
         driver.quit();
     }
+
     @Test
     public void test2() {
 
