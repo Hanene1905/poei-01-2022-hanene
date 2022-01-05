@@ -3,6 +3,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -19,7 +20,7 @@ public class tp1 {
         buttonCookies.click();
 
     }
-
+    @AfterMethod
     public void teardown (){
         driver.quit();
     }
@@ -36,7 +37,7 @@ public class tp1 {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        driver.quit();
+
     }
 
     @Test
@@ -58,6 +59,6 @@ public class tp1 {
         WebElement buttonAjouterAuPanier = driver.findElement(By.cssSelector("# add-to-cart-button"));
         buttonAjouterAuPanier.click();
 
-        driver.quit();
+
     }
 }
