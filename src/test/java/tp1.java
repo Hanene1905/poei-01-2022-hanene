@@ -20,6 +20,10 @@ public class tp1 {
 
     }
 
+    public void teardown (){
+        driver.quit();
+    }
+
     //chercher machine a raclette
     @Test
     public void test1() {
