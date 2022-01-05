@@ -8,11 +8,17 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
+
 public class tp1 {
     WebDriver driver;
     @BeforeMethod
     public void setup() {
         driver = new ChromeDriver();
+
+        //implicit wait 2 secondes ici
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+
         driver.get("https://www.amazon.fr");
         driver.manage().window().maximize();
         //fermer cookies
@@ -32,11 +38,7 @@ public class tp1 {
         WebElement barreRecherche = driver.findElement(By.id("twotabsearchtextbox"));
         barreRecherche.sendKeys("machine a raclette");
         barreRecherche.sendKeys(Keys.ENTER);
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
 
     }
 
@@ -48,11 +50,7 @@ public class tp1 {
         barreRecherche.sendKeys("machine a raclette");
         barreRecherche.sendKeys(Keys.ENTER);
 
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        //implicit wait ici
 
         WebElement selectproduct = driver.findElement(By.cssSelector("[cel_widget_id='MAIN-SEARCH_RESULTS-11]"));
         selectproduct.click();
