@@ -11,8 +11,8 @@ public class tp1 {
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.amazon.fr");
         driver.manage().window().maximize();
-       //fermer cookies
-        WebElement buttonCookies =driver.findElement(By.id("sp-cc-accept"));
+        //fermer cookies
+        WebElement buttonCookies = driver.findElement(By.id("sp-cc-accept"));
         buttonCookies.click();
         WebElement barreRecherche = driver.findElement(By.id("twotabsearchtextbox"));
         barreRecherche.sendKeys("machine a raclette");
@@ -28,5 +28,27 @@ public class tp1 {
     @Test
     public void test2() {
 
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://www.amazon.fr");
+        driver.manage().window().maximize();
+        //fermer cookies
+        WebElement buttonCookies = driver.findElement(By.id("sp-cc-accept"));
+        buttonCookies.click();
+        WebElement barreRecherche = driver.findElement(By.id("twotabsearchtextbox"));
+        barreRecherche.sendKeys("machine a raclette");
+        barreRecherche.sendKeys(Keys.ENTER);
+
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        WebElement selectproduct = driver.findElement(By.cssSelector("[cel_widget_id='MAIN-SEARCH_RESULTS-11]"));
+        selectproduct.click();
+        WebElement buttonAjouterAuPanier = driver.findElement(By.cssSelector("# add-to-cart-button"));
+        buttonAjouterAuPanier.click();
+
+        driver.quit();
     }
 }
